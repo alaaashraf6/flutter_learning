@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app_on_udemy/login_screen.dart';
+import 'package:learning_app_on_udemy/Massenger/massenger_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,12 +61,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: SafeArea(
         child: Scaffold(
-          body: LoginScreen()
+          // body: LoginScreen()
+          body: MassengerScreen()
         ),
       ),
     );
