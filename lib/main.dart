@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app_on_udemy/BMICalculator/bmi_calculator.dart';
-import 'package:learning_app_on_udemy/Users/userItem.dart';
-import 'package:learning_app_on_udemy/Users/user_screen.dart';
-import 'package:learning_app_on_udemy/login_screen.dart';
-import 'package:learning_app_on_udemy/Massenger/massenger_screen.dart';
+import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
+import 'package:learning_app_on_udemy/modules/users/userItem.dart';
+import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
+import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
+import 'package:learning_app_on_udemy/modules/massenger/massenger_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,15 +64,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: SafeArea(
         child: Scaffold(
-            // body: LoginScreen()
+            body: LoginScreen()),
             // body: MassengerScreen()
             // body: UserScreen()),
-            body: BMICalculator()),
+            // body: BMICalculator()),
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app_on_udemy/Model/UserModel.dart';
-import 'package:learning_app_on_udemy/Users/userItem.dart';
+import 'package:learning_app_on_udemy/modules/users/userItem.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});

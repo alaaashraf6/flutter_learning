@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning_app_on_udemy/Massenger/buildChatItem.dart';
-import 'package:learning_app_on_udemy/Massenger/buildStoryItem.dart';
+import 'package:learning_app_on_udemy/modules/massenger/buildChatItem.dart';
+import 'package:learning_app_on_udemy/modules/massenger/buildStoryItem.dart';
 
 class MassengerScreen extends StatelessWidget {
   const MassengerScreen({super.key});
