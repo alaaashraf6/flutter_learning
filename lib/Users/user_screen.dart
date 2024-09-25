@@ -13,6 +13,10 @@ class UserScreen extends StatelessWidget {
       UserModel(id: 3, name: 'Mesho', phone: '+20114281567'),
       UserModel(id: 4, name: 'Maro', phone: '+20114281567'),
       UserModel(id: 5, name: 'Darsh', phone: '+20114281567'),
+      UserModel(id: 5, name: 'Darsh', phone: '+20114281567'),
+      UserModel(id: 5, name: 'Loly', phone: '+20114281567'),
+      UserModel(id: 5, name: 'Loly', phone: '+20114281567'),
+      UserModel(id: 5, name: 'Loly', phone: '+20114281567'),
     ];
     return Scaffold(
       appBar: AppBar(
