@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app_on_udemy/BMICalculator/bmi_calculator.dart';
 import 'package:learning_app_on_udemy/Users/userItem.dart';
 import 'package:learning_app_on_udemy/Users/user_screen.dart';
 import 'package:learning_app_on_udemy/login_screen.dart';
@@ -70,7 +71,8 @@ class MyApp extends StatelessWidget {
         child: Scaffold(
             // body: LoginScreen()
             // body: MassengerScreen()
-            body: UserScreen()),
+            // body: UserScreen()),
+            body: BMICalculator()),
       ),
     );
   }
