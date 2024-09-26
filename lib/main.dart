@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app_on_udemy/layout/home_layout.dart';
 import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
 import 'package:learning_app_on_udemy/modules/users/userItem.dart';
 import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
@@ -64,15 +65,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: SafeArea(
         child: Scaffold(
-            body: LoginScreen()),
+            // body: LoginScreen()),
             // body: MassengerScreen()
             // body: UserScreen()),
             // body: BMICalculator()),
+            body: HomeLayout()),
       ),
     );
   }
