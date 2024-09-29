@@ -1,12 +1,16 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_app_on_udemy/layout/home_layout.dart';
+import 'package:learning_app_on_udemy/modules/Counter/counter_screen.dart';
 import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
 import 'package:learning_app_on_udemy/modules/users/userItem.dart';
 import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
 import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
 import 'package:learning_app_on_udemy/modules/massenger/massenger_screen.dart';
+import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
 
 void main() {
+   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -74,7 +78,8 @@ class MyApp extends StatelessWidget {
             // body: MassengerScreen()
             // body: UserScreen()),
             // body: BMICalculator()),
-            body: HomeLayout()),
+            // body: HomeLayout()),
+            body: CounterScreen()),
       ),
     );
   }
