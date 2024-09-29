@@ -17,7 +17,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(create: (BuildContext context)=> AppCupit(),
+    return  BlocProvider(create: (BuildContext context)=> AppCupit()..getBusiness(),
     child: BlocConsumer<AppCupit , AppStates>( listener: (BuildContext context , AppStates states){} ,
     builder: (BuildContext context , AppStates states){
 

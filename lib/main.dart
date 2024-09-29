@@ -8,10 +8,14 @@ import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
 import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
 import 'package:learning_app_on_udemy/modules/massenger/massenger_screen.dart';
 import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
+import 'package:learning_app_on_udemy/shared/network/local/cashe_helper.dart';
 import 'package:learning_app_on_udemy/shared/network/remote/dio_helper.dart';
 
-void main() {
-   Bloc.observer = MyBlocObserver();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  DioHelper.init();
+  await CasheHelper.init();
   runApp(const MyApp());
 }
 
@@ -70,8 +74,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Bloc.observer = MyBlocObserver();
-    DioHelper.init();
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -82,7 +84,7 @@ class MyApp extends StatelessWidget {
             // body: UserScreen()),
             // body: BMICalculator()),
             body: HomeLayout()),
-            // body: CounterScreen()),
+        // body: CounterScreen()),
       ),
     );
   }
