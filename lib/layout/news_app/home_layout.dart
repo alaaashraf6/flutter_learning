@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_app_on_udemy/modules/archive_tasks/archive_tasks.dart';
 import 'package:learning_app_on_udemy/modules/done_task/done_task.dart';
 import 'package:learning_app_on_udemy/modules/new_task/new_task.dart';
+import 'package:learning_app_on_udemy/shared/cubit/cubit.dart';
+import 'package:learning_app_on_udemy/shared/cubit/states.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -11,16 +14,14 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  int currentIndex = 0;
-  final List<Widget> screens = const[
-    NewTasks() ,
-    DoneTasks() ,
-    ArchiveTasks()
-  ] ;
-
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  BlocProvider(create: (BuildContext context)=> AppCupit(),
+    child: BlocConsumer<AppCupit , AppStates>( listener: (BuildContext context , AppStates states){} ,
+    builder: (BuildContext context , AppStates states){
+
+      return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.blue,
           title: const Text(
@@ -33,11 +34,9 @@ class _HomeLayoutState extends State<HomeLayout> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
+          currentIndex: AppCupit.get(context).currentIndex,
           onTap: (index) => {
-                setState(() {
-                  currentIndex = index;
-                })
+                AppCupit.get(context).changeIndex(index)
               },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Tasks' , ),
@@ -45,7 +44,8 @@ class _HomeLayoutState extends State<HomeLayout> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.archive_outlined), label: 'Archive'),
           ]),
-          body: screens[currentIndex],
+          body: AppCupit.get(context).screens[AppCupit.get(context).currentIndex] ,
     );
+    }),);
   }
 }

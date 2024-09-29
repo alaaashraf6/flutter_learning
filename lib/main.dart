@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:learning_app_on_udemy/layout/home_layout.dart';
+import 'package:learning_app_on_udemy/layout/news_app/home_layout.dart';
 import 'package:learning_app_on_udemy/modules/Counter/counter_screen.dart';
 import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
 import 'package:learning_app_on_udemy/modules/users/userItem.dart';
@@ -8,6 +8,7 @@ import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
 import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
 import 'package:learning_app_on_udemy/modules/massenger/massenger_screen.dart';
 import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
+import 'package:learning_app_on_udemy/shared/network/remote/dio_helper.dart';
 
 void main() {
    Bloc.observer = MyBlocObserver();
@@ -69,6 +70,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Bloc.observer = MyBlocObserver();
+    DioHelper.init();
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -78,8 +81,8 @@ class MyApp extends StatelessWidget {
             // body: MassengerScreen()
             // body: UserScreen()),
             // body: BMICalculator()),
-            // body: HomeLayout()),
-            body: CounterScreen()),
+            body: HomeLayout()),
+            // body: CounterScreen()),
       ),
     );
   }
