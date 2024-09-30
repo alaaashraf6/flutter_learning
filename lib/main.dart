@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app_on_udemy/layout/news_app/home_layout.dart';
 import 'package:learning_app_on_udemy/modules/Counter/counter_screen.dart';
 import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
+import 'package:learning_app_on_udemy/modules/shop_app/on_boarding_screen.dart';
 import 'package:learning_app_on_udemy/modules/users/userItem.dart';
 import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
 import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
@@ -83,7 +84,8 @@ class MyApp extends StatelessWidget {
             // body: MassengerScreen()
             // body: UserScreen()),
             // body: BMICalculator()),
-            body: HomeLayout()),
+            // body: HomeLayout()),
+            body: OnBoardingScreen()),
         // body: CounterScreen()),
       ),
     );

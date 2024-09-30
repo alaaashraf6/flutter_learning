@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:learning_app_on_udemy/modules/archive_tasks/archive_tasks.dart';
-import 'package:learning_app_on_udemy/modules/done_task/done_task.dart';
-import 'package:learning_app_on_udemy/modules/new_task/new_task.dart';
+import 'package:learning_app_on_udemy/modules/massenger/todo_app/archive_tasks/archive_tasks.dart';
+import 'package:learning_app_on_udemy/modules/massenger/todo_app/done_task/done_task.dart';
+import 'package:learning_app_on_udemy/modules/massenger/todo_app/new_task/new_task.dart';
 import 'package:learning_app_on_udemy/shared/cubit/cubit.dart';
 import 'package:learning_app_on_udemy/shared/cubit/states.dart';
 
