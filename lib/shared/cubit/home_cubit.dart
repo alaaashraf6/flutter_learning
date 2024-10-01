@@ -7,13 +7,14 @@ import 'package:learning_app_on_udemy/modules/news_app/Business/business_screen.
 import 'package:learning_app_on_udemy/modules/news_app/sciene/sciene_screen.dart';
 import 'package:learning_app_on_udemy/modules/news_app/settings_sceen/settings_screen.dart';
 import 'package:learning_app_on_udemy/modules/news_app/sport/sport_screen.dart';
+import 'package:learning_app_on_udemy/shared/cubit/home_state.dart';
 import 'package:learning_app_on_udemy/shared/cubit/states.dart';
 import 'package:learning_app_on_udemy/shared/network/remote/dio_helper.dart';
 
-class AppCupit extends Cubit<AppStates> {
-  AppCupit() : super(AppInitialState());
+class HomeCupit extends Cubit<HomeState> {
+  HomeCupit() : super(HomeInitialState());
 
-  static AppCupit get(context) => BlocProvider.of(context);
+  static HomeCupit get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
   List<Widget> screens = const [
@@ -23,15 +24,12 @@ class AppCupit extends Cubit<AppStates> {
     SettingsScrreen()
   ];
 
-  void changeIndex(int index) {
-    currentIndex = index;
-    emit(AppChangeBottomNavBarState());
-  }
+  
 
   List<dynamic> business = [];
 
   void getBusiness() {
-  emit(AppLoadingState());
+  emit(HomeLoadingState());
   DioHelper.getData(
     url: 'v2/top-headlines',
     query: {
@@ -44,14 +42,14 @@ class AppCupit extends Cubit<AppStates> {
     
     if (business.isNotEmpty) {
       log(business[0]['title']);
-      emit(AppGetBusinessSuccessState());
+      emit(HomeSuccessState());
     } else {
       log('No business articles found.');
-      emit(AppGetBusinessErrorState());
+      emit(HomeErrorState());
     }
   }).catchError((error) {
     log('Error fetching business news: ${error.toString()}');
-    emit(AppGetBusinessErrorState());
+    emit(HomeErrorState());
   });
 }
 

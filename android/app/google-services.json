@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713211218596",
+    "project_id": "learningflutter-e6089",
+    "storage_bucket": "learningflutter-e6089.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713211218596:android:6de27222b838dd2d73f431",
+        "android_client_info": {
+          "package_name": "com.example.learning_app_on_udemy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcT9xEz0cX0j7SQjIRW9uuuBsxeAH8nJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
