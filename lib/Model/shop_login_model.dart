@@ -1,5 +1,7 @@
 import 'package:learning_app_on_udemy/Model/UserModel.dart';
 
+
+
 class ShopLoginModel {
   bool? status;
   String? message;

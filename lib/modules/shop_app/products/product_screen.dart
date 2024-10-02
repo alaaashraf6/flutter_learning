@@ -1,3 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'dart:developer';
+import 'dart:ffi';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
@@ -25,26 +30,31 @@ class ProductScreen extends StatelessWidget {
       child: BlocConsumer<HomeCupit, HomeState>(
         listener: (context, state) {},
         builder: (context, state) {
-          return Column(
-              children:[ CarouselSlider(
-            items: imgList.map((e) => Image(image: NetworkImage(e), width: double.infinity , fit: BoxFit.cover,)).toList(),
-            
-            
-            options: CarouselOptions(
-                height: 200, initialPage: 0, viewportFraction: 1.0),
-          ),
-          const SizedBox(height:5,),
-          Expanded(
-            child: GridView.count(
+          return Column(children: [
+            CarouselSlider(
+              items: imgList
+                  .map((e) => Image(
+                        image: NetworkImage(e),
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ))
+                  .toList(),
+              options: CarouselOptions(
+                  height: 200, initialPage: 0, viewportFraction: 1.0),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Expanded(
+                child: GridView.count(
               primary: false,
               padding: const EdgeInsets.all(20),
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
-              children: List.generate(10, (index) => const ChildForGridView()),)
-          )
-              ]
-          );
+              children: List.generate(10, (index) => const ChildForGridView()),
+            ))
+          ]);
         },
       ),
     );
@@ -59,9 +69,34 @@ class ChildForGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
-      color: Colors.teal[100],
-      child: const Text("He'd have you all unravel at the"),
+      // width: double.infinity,
+      // padding: const EdgeInsets.all(8),
+      color: Colors.grey[100],
+      child: Column(children: [
+        Stack(children: [
+          Container(
+            decoration: BoxDecoration(),
+            width: double.infinity,
+            child: Image(
+              image: NetworkImage(
+                'https://i.pinimg.com/564x/0c/64/4f/0c644fd02f2da04a2a2522287fbfdf9a.jpg',
+              ),
+              // width: double.infinity,
+              height: 100,
+              // color: Colors.red,
+            ),
+          ),
+          Text('simple is the best')
+        ]),
+        InkWell(
+          onTap: () {
+            log("go lough on our stress");
+          },
+          child: Row(
+            children: [Icon(Icons.heart_broken_outlined), Text('hey')],
+          ),
+        )
+      ]),
     );
   }
 }

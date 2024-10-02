@@ -1,20 +1,16 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:learning_app_on_udemy/layout/news_app/home_layout.dart';
-import 'package:learning_app_on_udemy/modules/Counter/counter_screen.dart';
-import 'package:learning_app_on_udemy/modules/bmi/bmi_calculator.dart';
-import 'package:learning_app_on_udemy/modules/shop_app/on_boarding_screen.dart';
+import 'package:learning_app_on_udemy/modules/native_code.dart';
 import 'package:learning_app_on_udemy/modules/shop_app/products/product_screen.dart';
-import 'package:learning_app_on_udemy/modules/users/userItem.dart';
-import 'package:learning_app_on_udemy/modules/users/user_screen.dart';
-import 'package:learning_app_on_udemy/modules/login/login_screen.dart';
-import 'package:learning_app_on_udemy/modules/massenger/massenger_screen.dart';
 import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
 import 'package:learning_app_on_udemy/shared/network/local/cashe_helper.dart';
 import 'package:learning_app_on_udemy/shared/network/remote/dio_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //  await Firebase.initializeApp();
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
   await CasheHelper.init();
@@ -76,6 +72,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -87,7 +84,8 @@ class MyApp extends StatelessWidget {
             // body: BMICalculator()),
             // body: HomeLayout()),
             // body: OnBoardingScreen()),
-           body: ProductScreen()),
+          //  body: ProductScreen()),
+          body : NativeCodeScreen())
         // body: CounterScreen()),
       ),
     );
