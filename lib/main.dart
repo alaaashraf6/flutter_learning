@@ -4,13 +4,17 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:learning_app_on_udemy/modules/mobile_screen.dart';
-import 'package:learning_app_on_udemy/modules/native_code.dart';
 import 'package:learning_app_on_udemy/modules/desktop_screen.dart';
-import 'package:learning_app_on_udemy/modules/shop_app/products/product_screen.dart';
+import 'package:learning_app_on_udemy/modules/mobile_screen.dart';
 import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
 import 'package:learning_app_on_udemy/shared/network/local/cashe_helper.dart';
 import 'package:learning_app_on_udemy/shared/network/remote/dio_helper.dart';
+
+// void main() {
+//   runApp(MaterialApp(
+//     home: MinWidthExample(),
+//   ));
+// }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,30 +83,82 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SafeArea(child: Scaffold(
-              // body: LoginScreen()),
-              // body: MassengerScreen()
-              // body: UserScreen()),
-              // body: BMICalculator()),
-              // body: HomeLayout()),
-              // body: OnBoardingScreen()),
-              //  body: ProductScreen()),
-              // body : NativeCodeScreen())
-              body: LayoutBuilder(
-                  builder: (BuildContext context, BoxConstraints constraints) {
-        log('${constraints.minWidth}');
-        if (constraints.minWidth <= 580) {
-          // ayh r
-          return MediaQuery(
-              data: MediaQuery.of(context)
-                  .copyWith(textScaler: TextScaler.linear(0.5)),
-              child: MobileScreen());
-        }
+      home: Scaffold(
+          appBar: AppBar(
+//         title: Text('Min Width Example'),
+              ),
+          // body: LoginScreen()),
+          // body: MassengerScreen()
+          // body: UserScreen()),
+          // body: BMICalculator()),
+          // body: HomeLayout()),
+          // body: OnBoardingScreen()),
+          //  body: ProductScreen()),
+          // body : NativeCodeScreen())
+          body: SizedBox(
+            width: double.infinity,
+            child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+              log('${constraints.minWidth.toInt()}'); 
 
-        return DesktopScreen();
-      }))
+              if (constraints.minWidth <= 580) {
+                return MediaQuery(
+                    data: MediaQuery.of(context)
+                        .copyWith(textScaler: TextScaler.linear(0.5)),
+                    child: MobileScreen());
+              } else {
+                return DesktopScreen();
+              }
+            }),
+          )
           // body: CounterScreen()),
+
           ),
+    );
+  }
+}
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MaterialApp(
+//     home: MinWidthExample(),
+//   ));
+// }
+
+class MinWidthExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Min Width Example'),
+      ),
+      body: Center(
+        // Center widget
+        child: Container(
+          // Providing width constraint
+          width: double.infinity, // Expand to fill available width
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              double minWidth = constraints.minWidth;
+
+              return Center(
+                child: Container(
+                  width: 200, // Example width
+                  height: 100,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Text(
+                      'Min Width: $minWidth',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
