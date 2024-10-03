@@ -1,8 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:learning_app_on_udemy/modules/mobile_screen.dart';
 import 'package:learning_app_on_udemy/modules/native_code.dart';
+import 'package:learning_app_on_udemy/modules/desktop_screen.dart';
 import 'package:learning_app_on_udemy/modules/shop_app/products/product_screen.dart';
 import 'package:learning_app_on_udemy/shared/bloc_observer.dart';
 import 'package:learning_app_on_udemy/shared/network/local/cashe_helper.dart';
@@ -72,22 +76,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SafeArea(
-        child: Scaffold(
-            // body: LoginScreen()),
-            // body: MassengerScreen()
-            // body: UserScreen()),
-            // body: BMICalculator()),
-            // body: HomeLayout()),
-            // body: OnBoardingScreen()),
-          //  body: ProductScreen()),
-          body : NativeCodeScreen())
-        // body: CounterScreen()),
-      ),
+      home: SafeArea(child: Scaffold(
+              // body: LoginScreen()),
+              // body: MassengerScreen()
+              // body: UserScreen()),
+              // body: BMICalculator()),
+              // body: HomeLayout()),
+              // body: OnBoardingScreen()),
+              //  body: ProductScreen()),
+              // body : NativeCodeScreen())
+              body: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+        log('${constraints.minWidth}');
+        if (constraints.minWidth <= 580) {
+          // ayh r
+          return MediaQuery(
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: TextScaler.linear(0.5)),
+              child: MobileScreen());
+        }
+
+        return DesktopScreen();
+      }))
+          // body: CounterScreen()),
+          ),
     );
   }
 }
